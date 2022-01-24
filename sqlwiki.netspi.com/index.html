@@ -1,0 +1,317 @@
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>NetSPI SQL Injection Wiki</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="assets/scss/index.css%3F1571409135814090317.css" />
+  <link rel="stylesheet" href="assets/scss/nav.css%3F1571409135814090317.css" />
+  <link rel="stylesheet" href="assets/scss/tab.css%3F1571409135814090317.css" />
+  <!-- We're going to load JS up top, this makes sure all of our painting is done hopefully in one sweep  -->
+  <script src="assets/javascripts/cash.min.js"></script>
+  <script type="text/javascript" async src="assets/javascripts/index.js%3F1571409135814090317"></script>
+  
+  <meta name="theme-color" content="#ffffff">
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="NetSPI SQL Injection Wiki" />
+  <meta property="og:description" content="A one stop resource for fully identifying, exploiting, and escalating SQL injection vulnerabilities across various Database Management Systems." />
+  <meta property="og:image" content="/assets/images/facebookCard.jpg" />
+  <meta name="twitter:title" content="NetSPI SQL Injection Wiki" />
+  <meta name="twitter:description" content="A one stop resource for fully identifying, exploiting, and escalating SQL injection vulnerabilities across various Database Management Systems." />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="/assets/images/twitterCard.jpg">
+  <meta name="twitter:site" content="@netspi" />
+  <meta name="twitter:creator" content="@netspi" />
+  <meta name="description" content="A one stop resource for fully identifying, exploiting, and escalating SQL injection vulnerabilities across various Database Management Systems.">
+  <meta name="keywords" content="netspi, sql injection, wiki, sqli, sql, injection, netspy, network security professionals, oracle, mysql, sqlserver, mssql, cheat sheet, cheat, sheet,">
+  <link rel="author" href="https://netspi.com" />
+  <link rel="shortcut icon" href="assets/images/favicon.ico">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+</head>
+
+<body class="preload">
+  <div class="mobile"></div>
+  <div id="contentWrapper">
+    <div id="topBar">
+      <div class="n-nav-icon default">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <div id="logoContainer">
+      <a href="https://netspi.com"><img src="assets/images/logo.png%3F1571409135814090317" /></a><br/>
+      </div>
+    </div>
+    <div class="n-navbar default">
+      <ul>
+  
+  
+  <li class="n-nav-item n-top-nav-item">
+    
+    <a class="link" data-route="/" href="index.html">
+      
+    <div>Home</div>
+    </a>
+  </li>
+   
+  
+  <li class="n-nav-item n-top-nav-item">
+    
+    <a class="link" target="_blank" rel="noopener" href="https://netspi.com">
+    
+    <div>About Us</div>
+    </a>
+  </li>
+   
+  
+  <li class="n-nav-item n-top-nav-item">
+    
+    <a class="link" data-route="/detection" href="detection.html">
+      
+    <div>Injection Detection</div>
+    </a>
+  </li>
+   
+  
+  <li class="n-nav-item n-top-nav-item">
+    
+    <a class="link" data-route="/dbmsIdentification/" href="dbmsIdentification/index.html">
+      
+    <div>DBMS Identification</div>
+    </a>
+  </li>
+   
+  
+  <li>
+    <ul>
+      
+      <li class="n-nav-item n-top-nav-item">
+        
+        <a class="link" data-route="/injectionTypes/" href="injectionTypes/index.html">
+          
+          <div>Injection Types</div>
+        </a>
+      </li>
+      
+      
+      <li class="n-nav-item">
+        
+        <a class="link" data-route="/injectionTypes/errorBased/" href="injectionTypes/errorBased/index.html">
+          
+          <div>Error Based Injection</div>
+        </a>
+      </li>
+      
+      <li class="n-nav-item">
+        
+        <a class="link" data-route="/injectionTypes/unionBased/" href="injectionTypes/unionBased/index.html">
+          
+          <div>Union Based Injection</div>
+        </a>
+      </li>
+      
+      <li class="n-nav-item">
+        
+        <a class="link" data-route="/injectionTypes/blindBased/" href="injectionTypes/blindBased/index.html">
+          
+          <div>Blind Based Injection</div>
+        </a>
+      </li>
+      
+    </ul>
+  </li>
+   
+  
+  <li>
+    <ul>
+      
+      <li class="n-nav-item n-top-nav-item">
+        
+        <a class="link" data-route="/injectionTechniques/" href="injectionTechniques/index.html">
+          
+          <div>Injection Techniques</div>
+        </a>
+      </li>
+      
+      
+      <li class="n-nav-item">
+        
+        <a class="link" data-route="/injectionTechniques/conditionalStatements/" href="injectionTechniques/conditionalStatements/index.html">
+          
+          <div>Conditional Statements</div>
+        </a>
+      </li>
+      
+      <li class="n-nav-item">
+        
+        <a class="link" data-route="/injectionTechniques/injectionPlacement/" href="injectionTechniques/injectionPlacement/index.html">
+          
+          <div>Injection Placement</div>
+        </a>
+      </li>
+      
+      <li class="n-nav-item">
+        
+        <a class="link" data-route="/injectionTechniques/obfuscation/" href="injectionTechniques/obfuscation/index.html">
+          
+          <div>Injection Obfuscation</div>
+        </a>
+      </li>
+      
+    </ul>
+  </li>
+   
+  
+  <li>
+    <ul>
+      
+      <li class="n-nav-item n-top-nav-item">
+        
+        <a class="link" data-route="/attackQueries/" href="attackQueries/index.html">
+          
+          <div>Attack Queries</div>
+        </a>
+      </li>
+      
+      
+      <li class="n-nav-item">
+        
+        <a class="link" data-route="/attackQueries/informationGathering/" href="attackQueries/informationGathering/index.html">
+          
+          <div>Information Gathering</div>
+        </a>
+      </li>
+      
+      <li class="n-nav-item">
+        
+        <a class="link" data-route="/attackQueries/dataTargeting/" href="attackQueries/dataTargeting/index.html">
+          
+          <div>Data Targeting</div>
+        </a>
+      </li>
+      
+      <li class="n-nav-item">
+        
+        <a class="link" data-route="/attackQueries/privilegeEscalation/" href="attackQueries/privilegeEscalation/index.html">
+          
+          <div>Privilege Escalation</div>
+        </a>
+      </li>
+      
+      <li class="n-nav-item">
+        
+        <a class="link" data-route="/attackQueries/executingOSCommands/" href="attackQueries/executingOSCommands/index.html">
+          
+          <div>Executing OS Commands</div>
+        </a>
+      </li>
+      
+      <li class="n-nav-item">
+        
+        <a class="link" data-route="/attackQueries/readingAndWritingFiles/" href="attackQueries/readingAndWritingFiles/index.html">
+          
+          <div>Reading and Writing Files</div>
+        </a>
+      </li>
+      
+      <li class="n-nav-item">
+        
+        <a class="link" data-route="/attackQueries/lateralMovement/" href="attackQueries/lateralMovement/index.html">
+          
+          <div>Lateral Movement</div>
+        </a>
+      </li>
+      
+      <li class="n-nav-item">
+        
+        <a class="link" data-route="/attackQueries/dataExfiltration/" href="attackQueries/dataExfiltration.html">
+          
+          <div>Data Exfiltration</div>
+        </a>
+      </li>
+      
+      <li class="n-nav-item">
+        
+        <a class="link" data-route="/attackQueries/persistence/" href="attackQueries/persistence/index.html">
+          
+          <div>Persistence</div>
+        </a>
+      </li>
+      
+    </ul>
+  </li>
+   
+  
+  <li>
+    <ul>
+      
+      <li class="n-nav-item n-top-nav-item">
+          <div>Misc.</div>
+      </li>
+      
+      
+      <li class="n-nav-item">
+        
+        <a class="link" data-route="/misc/contributors" href="misc/contributors.html">
+          
+          <div>Contributors</div>
+        </a>
+      </li>
+      
+      <li class="n-nav-item">
+        
+        <a class="link" data-route="/misc/references/" href="misc/references/index.html">
+          
+          <div>References</div>
+        </a>
+      </li>
+      
+      <li class="n-nav-item">
+        
+        <a class="link" data-route="/misc/sandboxes/" href="misc/sandboxes/index.html">
+          
+          <div>Sandboxes</div>
+        </a>
+      </li>
+      
+      <li class="n-nav-item">
+        
+        <a class="link" data-route="/misc/tools/" href="misc/tools/index.html">
+          
+          <div>Tools</div>
+        </a>
+      </li>
+      
+    </ul>
+  </li>
+   
+</ul>
+
+    </div>
+    <div id="contentContainer">
+      <h2 id="header">Welcome to the NetSPI SQL Injection Wiki!</h2>
+<div id="homeWrapper">
+  <p class="readableText">This wiki's mission is to be a one stop resource for fully identifying, exploiting, and escalating SQL injection vulnerabilities across various Database Management Systems (DBMS). This wiki assumes you have a basic understanding of SQL injection, please
+    go <a href="https://www.owasp.org/index.php/SQL_Injection" rel="noopener" target="_blank">here</a> for an introduction if you are unfamiliar.</p>
+  <p class="readableText">Below is an outline of the wiki's structure, laid out in the order of a normal escalation path. Certain queries may be version specific.</p>
+  <h3>Step 1: <a href="detection.html">Injection Detection</a></h3>
+  <h3>Step 2: <a href="dbmsIdentification/index.html">DBMS Identification</a></h3>
+  <h3>Step 3: <a href="injectionTypes/index.html">Injection Types</a></h3>
+  <h3>Step 4: <a href="injectionTechniques/index.html">Injection Techniques</a></h3>
+  <h3>Step 5: <a href="attackQueries/index.html">Attack Queries</a></h3>
+  <p></p>
+  <h3>Contributing</h3>
+  <p>Please feel free to submit pull requests or issues on our <a href="https://github.com/NetSPI/SQLInjectionWiki" target="_blank" rel="noopener">Github</a> if you notice something that is missing or inaccurate.</p>
+
+</div>
+
+      <div><div>
+  <br/>
+  <p>© 2019 Copyright by NetSPI. All rights reserved.</p>
+</div>
+</div>
+    </div>
+  </div>
+</body>
+</html>

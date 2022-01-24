@@ -1,0 +1,378 @@
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>References | NetSPI SQL Injection Wiki</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="../../assets/scss/index.css%3F1571409135814090317.css" />
+  <link rel="stylesheet" href="../../assets/scss/nav.css%3F1571409135814090317.css" />
+  <link rel="stylesheet" href="../../assets/scss/tab.css%3F1571409135814090317.css" />
+  <!-- We're going to load JS up top, this makes sure all of our painting is done hopefully in one sweep  -->
+  <script src="../../assets/javascripts/cash.min.js"></script>
+  <script type="text/javascript" async src="../../assets/javascripts/index.js%3F1571409135814090317"></script>
+  
+  <script type="text/javascript" async src="../../assets/javascripts/tab.js%3F1571409135814090317"></script>
+  
+  <meta name="theme-color" content="#ffffff">
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="NetSPI SQL Injection Wiki" />
+  <meta property="og:description" content="Thanks to all of our reference sources for their amazing information." />
+  <meta property="og:image" content="/assets/images/facebookCard.jpg" />
+  <meta name="twitter:title" content="NetSPI SQL Injection Wiki" />
+  <meta name="twitter:description" content="Thanks to all of our reference sources for their amazing information." />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="/assets/images/twitterCard.jpg">
+  <meta name="twitter:site" content="@netspi" />
+  <meta name="twitter:creator" content="@netspi" />
+  <meta name="description" content="Thanks to all of our reference sources for their amazing information.">
+  <meta name="keywords" content="netspi, sql injection, wiki, sqli, sql, injection, netspy, network security professionals, oracle, mysql, sqlserver, mssql, cheat sheet, cheat, sheet,references">
+  <link rel="author" href="https://netspi.com" />
+  <link rel="shortcut icon" href="../../assets/images/favicon.ico">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+</head>
+
+<body class="preload">
+  <div class="mobile"></div>
+  <div id="contentWrapper">
+    <div id="topBar">
+      <div class="n-nav-icon default">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <div id="logoContainer">
+      <a href="https://netspi.com"><img src="../../assets/images/logo.png%3F1571409135814090317" /></a><br/>
+      </div>
+    </div>
+    <div class="n-navbar default">
+      <ul>
+  
+  
+  <li class="n-nav-item n-top-nav-item">
+    
+    <a class="link" data-route="/" href="../../index.html">
+      
+    <div>Home</div>
+    </a>
+  </li>
+   
+  
+  <li class="n-nav-item n-top-nav-item">
+    
+    <a class="link" target="_blank" rel="noopener" href="https://netspi.com">
+    
+    <div>About Us</div>
+    </a>
+  </li>
+   
+  
+  <li class="n-nav-item n-top-nav-item">
+    
+    <a class="link" data-route="/detection" href="../../detection.html">
+      
+    <div>Injection Detection</div>
+    </a>
+  </li>
+   
+  
+  <li class="n-nav-item n-top-nav-item">
+    
+    <a class="link" data-route="/dbmsIdentification/" href="../../dbmsIdentification/index.html">
+      
+    <div>DBMS Identification</div>
+    </a>
+  </li>
+   
+  
+  <li>
+    <ul>
+      
+      <li class="n-nav-item n-top-nav-item">
+        
+        <a class="link" data-route="/injectionTypes/" href="../../injectionTypes/index.html">
+          
+          <div>Injection Types</div>
+        </a>
+      </li>
+      
+      
+      <li class="n-nav-item">
+        
+        <a class="link" data-route="/injectionTypes/errorBased/" href="../../injectionTypes/errorBased/index.html">
+          
+          <div>Error Based Injection</div>
+        </a>
+      </li>
+      
+      <li class="n-nav-item">
+        
+        <a class="link" data-route="/injectionTypes/unionBased/" href="../../injectionTypes/unionBased/index.html">
+          
+          <div>Union Based Injection</div>
+        </a>
+      </li>
+      
+      <li class="n-nav-item">
+        
+        <a class="link" data-route="/injectionTypes/blindBased/" href="../../injectionTypes/blindBased/index.html">
+          
+          <div>Blind Based Injection</div>
+        </a>
+      </li>
+      
+    </ul>
+  </li>
+   
+  
+  <li>
+    <ul>
+      
+      <li class="n-nav-item n-top-nav-item">
+        
+        <a class="link" data-route="/injectionTechniques/" href="../../injectionTechniques/index.html">
+          
+          <div>Injection Techniques</div>
+        </a>
+      </li>
+      
+      
+      <li class="n-nav-item">
+        
+        <a class="link" data-route="/injectionTechniques/conditionalStatements/" href="../../injectionTechniques/conditionalStatements/index.html">
+          
+          <div>Conditional Statements</div>
+        </a>
+      </li>
+      
+      <li class="n-nav-item">
+        
+        <a class="link" data-route="/injectionTechniques/injectionPlacement/" href="../../injectionTechniques/injectionPlacement/index.html">
+          
+          <div>Injection Placement</div>
+        </a>
+      </li>
+      
+      <li class="n-nav-item">
+        
+        <a class="link" data-route="/injectionTechniques/obfuscation/" href="../../injectionTechniques/obfuscation/index.html">
+          
+          <div>Injection Obfuscation</div>
+        </a>
+      </li>
+      
+    </ul>
+  </li>
+   
+  
+  <li>
+    <ul>
+      
+      <li class="n-nav-item n-top-nav-item">
+        
+        <a class="link" data-route="/attackQueries/" href="../../attackQueries/index.html">
+          
+          <div>Attack Queries</div>
+        </a>
+      </li>
+      
+      
+      <li class="n-nav-item">
+        
+        <a class="link" data-route="/attackQueries/informationGathering/" href="../../attackQueries/informationGathering/index.html">
+          
+          <div>Information Gathering</div>
+        </a>
+      </li>
+      
+      <li class="n-nav-item">
+        
+        <a class="link" data-route="/attackQueries/dataTargeting/" href="../../attackQueries/dataTargeting/index.html">
+          
+          <div>Data Targeting</div>
+        </a>
+      </li>
+      
+      <li class="n-nav-item">
+        
+        <a class="link" data-route="/attackQueries/privilegeEscalation/" href="../../attackQueries/privilegeEscalation/index.html">
+          
+          <div>Privilege Escalation</div>
+        </a>
+      </li>
+      
+      <li class="n-nav-item">
+        
+        <a class="link" data-route="/attackQueries/executingOSCommands/" href="../../attackQueries/executingOSCommands/index.html">
+          
+          <div>Executing OS Commands</div>
+        </a>
+      </li>
+      
+      <li class="n-nav-item">
+        
+        <a class="link" data-route="/attackQueries/readingAndWritingFiles/" href="../../attackQueries/readingAndWritingFiles/index.html">
+          
+          <div>Reading and Writing Files</div>
+        </a>
+      </li>
+      
+      <li class="n-nav-item">
+        
+        <a class="link" data-route="/attackQueries/lateralMovement/" href="../../attackQueries/lateralMovement/index.html">
+          
+          <div>Lateral Movement</div>
+        </a>
+      </li>
+      
+      <li class="n-nav-item">
+        
+        <a class="link" data-route="/attackQueries/dataExfiltration/" href="../../attackQueries/dataExfiltration.html">
+          
+          <div>Data Exfiltration</div>
+        </a>
+      </li>
+      
+      <li class="n-nav-item">
+        
+        <a class="link" data-route="/attackQueries/persistence/" href="../../attackQueries/persistence/index.html">
+          
+          <div>Persistence</div>
+        </a>
+      </li>
+      
+    </ul>
+  </li>
+   
+  
+  <li>
+    <ul>
+      
+      <li class="n-nav-item n-top-nav-item">
+          <div>Misc.</div>
+      </li>
+      
+      
+      <li class="n-nav-item">
+        
+        <a class="link" data-route="/misc/contributors" href="../contributors.html">
+          
+          <div>Contributors</div>
+        </a>
+      </li>
+      
+      <li class="n-nav-item">
+        
+        <a class="link" data-route="/misc/references/" href="index.html">
+          
+          <div>References</div>
+        </a>
+      </li>
+      
+      <li class="n-nav-item">
+        
+        <a class="link" data-route="/misc/sandboxes/" href="../sandboxes/index.html">
+          
+          <div>Sandboxes</div>
+        </a>
+      </li>
+      
+      <li class="n-nav-item">
+        
+        <a class="link" data-route="/misc/tools/" href="../tools/index.html">
+          
+          <div>Tools</div>
+        </a>
+      </li>
+      
+    </ul>
+  </li>
+   
+</ul>
+
+    </div>
+    <div id="contentContainer">
+      <div id="tabs" class="tabs" data-tabs-ignore-url="false">
+
+<input class="tabInput"  name="tabs" type="radio" id="mysql"/>
+<label class="tabLabel" onClick="updateTab('mysql',false)" for="mysql">MySQL</label>
+<div id="tabPanel" class="tabPanel">
+     <h3 id="special-thanks-to">Special thanks to:</h3>
+
+<a target="_blank" rel="noopener" href="http://pentestmonkey.net/cheat-sheet/sql-injection/mysql-sql-injection-cheat-sheet">http://pentestmonkey.net/cheat-sheet/sql-injection/mysql-sql-injection-cheat-sheet</a><br/>
+<a target="_blank" rel="noopener" href="http://www.sqlinjectionwiki.com/categories/2/mysql-sql-injection-cheat-sheet/">http://www.sqlinjectionwiki.com/categories/2/mysql-sql-injection-cheat-sheet/</a><br/>
+<a target="_blank" rel="noopener" href="https://www.tutorialspoint.com/mysql/mysql-sql-injection.htm">https://www.tutorialspoint.com/mysql/mysql-sql-injection.htm</a><br/>
+<a target="_blank" rel="noopener" href="https://dev.mysql.com/doc/refman/5.7/en/bit-functions.html">https://dev.mysql.com/doc/refman/5.7/en/bit-functions.html</a><br/>
+<a target="_blank" rel="noopener" href="http://garage4hackers.com/showthread.php?t=1990">http://garage4hackers.com/showthread.php?t=1990</a><br/>
+<a target="_blank" rel="noopener" href="https://www.perspectiverisk.com/mysql-sql-injection-practical-cheat-sheet/">https://www.perspectiverisk.com/mysql-sql-injection-practical-cheat-sheet/</a><br/>
+<a target="_blank" rel="noopener" href="https://www.netsparker.com/blog/web-security/sql-injection-cheat-sheet/#UnionInjections">https://www.netsparker.com/blog/web-security/sql-injection-cheat-sheet/#UnionInjections</a><br/>
+<a target="_blank" rel="noopener" href="https://websec.ca/kb/sql_injection">https://websec.ca/kb/sql_injection</a><br/>
+<a target="_blank" rel="noopener" href="http://hakipedia.com/index.php/SQL_Injection">http://hakipedia.com/index.php/SQL_Injection</a><br/>
+<a target="_blank" rel="noopener" href="http://blog.kotowicz.net/2013/01/abusing-mysql-string-arithmetic-for.html">http://blog.kotowicz.net/2013/01/abusing-mysql-string-arithmetic-for.html</a><br/>
+<a target="_blank" rel="noopener" href="https://media.blackhat.com/us-13/US-13-Salgado-SQLi-Optimization-and-Obfuscation-Techniques-WP.pdf">https://media.blackhat.com/us-13/US-13-Salgado-SQLi-Optimization-and-Obfuscation-Techniques-WP.pdf</a><br/>
+<a target="_blank" rel="noopener" href="http://www.securiteam.com/securityreviews/5JP0F20EUM.html">http://www.securiteam.com/securityreviews/5JP0F20EUM.html</a><br/>
+<a target="_blank" rel="noopener" href="https://osandamalith.com/2017/02/03/mysql-out-of-band-hacking/">https://osandamalith.com/2017/02/03/mysql-out-of-band-hacking/</a><br/>
+<a target="_blank" rel="noopener" href="http://zombiehelp54.blogspot.ro/2017/02/sql-injection-in-update-query-bug.html?m=1">http://zombiehelp54.blogspot.ro/2017/02/sql-injection-in-update-query-bug.html?m=1</a><br/>
+<a target="_blank" rel="noopener" href="http://stackoverflow.com/questions/14714750/how-to-get-true-size-of-mysql-database">http://stackoverflow.com/questions/14714750/how-to-get-true-size-of-mysql-database</a><br/>
+<a target="_blank" rel="noopener" href="http://stackoverflow.com/questions/5648420/get-all-columns-from-all-mysql-tables">http://stackoverflow.com/questions/5648420/get-all-columns-from-all-mysql-tables</a><br/>
+<a target="_blank" rel="noopener" href="http://www.regular-expressions.info/creditcard.html">http://www.regular-expressions.info/creditcard.html</a><br/>
+
+</div>
+
+<input class="tabInput"  name="tabs" type="radio" id="oracle"/>
+<label class="tabLabel" onClick="updateTab('oracle',false)" for="oracle">Oracle</label>
+<div id="tabPanel" class="tabPanel">
+     <h3 id="special-thanks-to">Special thanks to:</h3>
+
+<p><a target="_blank" rel="noopener" href="http://www.0xdeadbeef.info/exploits/raptor_oraexec.sql">http://www.0xdeadbeef.info/exploits/raptor_oraexec.sql</a> <br>
+    <a target="_blank" rel="noopener" href="http://pentestmonkey.net/cheat-sheet/sql-injection/oracle-sql-injection-cheat-sheet">http://pentestmonkey.net/cheat-sheet/sql-injection/oracle-sql-injection-cheat-sheet</a> <br>
+    <a target="_blank" rel="noopener" href="http://www.sqlinjectionwiki.com/Categories/3/oracle-sql-injection-cheat-sheet">http://www.sqlinjectionwiki.com/Categories/3/oracle-sql-injection-cheat-sheet</a> <br>
+    <a target="_blank" rel="noopener" href="https://information.rapid7.com/rs/rapid7/images/R7%20SQL_Injection_Cheat_Sheet.v1.pdf">https://information.rapid7.com/rs/rapid7/images/R7%20SQL_Injection_Cheat_Sheet.v1.pdf</a> <br>
+    <a target="_blank" rel="noopener" href="http://www.sqlinjection.net/union/">http://www.sqlinjection.net/union/</a></p>
+
+</div>
+
+<input class="tabInput"  name="tabs" type="radio" id="sqlserver"/>
+<label class="tabLabel" onClick="updateTab('sqlserver',false)" for="sqlserver">SQL Server</label>
+<div id="tabPanel" class="tabPanel">
+     <h3 id="special-thanks-to">Special thanks to:</h3>
+
+<p><a target="_blank" rel="noopener" href="https://information.rapid7.com/rs/rapid7/images/R7%20SQL_Injection_Cheat_Sheet.v1.pdf">https://information.rapid7.com/rs/rapid7/images/R7%20SQL_Injection_Cheat_Sheet.v1.pdf</a> <br/>
+  <a target="_blank" rel="noopener" href="https://www.gracefulsecurity.com/sql-injection-exploitation/">https://www.gracefulsecurity.com/sql-injection-exploitation/</a> <br/>
+  <a target="_blank" rel="noopener" href="http://pentestmonkey.net/cheat-sheet/sql-injection/mssql-sql-injection-cheat-sheet">http://pentestmonkey.net/cheat-sheet/sql-injection/mssql-sql-injection-cheat-sheet</a> <br/>
+  <a target="_blank" rel="noopener" href="http://websec.ca/kb/sql_injection#MSSQL_Default_Databases">http://websec.ca/kb/sql_injection#MSSQL_Default_Databases</a> <br/>
+  <a target="_blank" rel="noopener" href="https://www.netsparker.com/blog/web-security/sql-injection-cheat-sheet/">https://www.netsparker.com/blog/web-security/sql-injection-cheat-sheet/</a> <br/>
+  <a target="_blank" rel="noopener" href="http://pentestmonkey.net/blog/mssql-dns">http://pentestmonkey.net/blog/mssql-dns</a> <br/>
+  <a target="_blank" rel="noopener" href="http://www.sqlinjectionwiki.com/Categories/1/mssql-sql-injection-cheat-sheet/">http://www.sqlinjectionwiki.com/Categories/1/mssql-sql-injection-cheat-sheet/</a><br/>
+  <a target="_blank" rel="noopener" href="https://github.com/nullbind/Powershellery/blob/master/Stable-ish/MSSQL/templates-tsql/Get-QueryHistory.sql">https://github.com/nullbind/Powershellery/blob/master/Stable-ish/MSSQL/templates-tsql/Get-QueryHistory.sql</a><br/>
+  <a target="_blank" rel="noopener" href="https://www.codeproject.com/Questions/219741/Select-nth-row-of-a-table-in-sql-server">https://www.codeproject.com/Questions/219741/Select-nth-row-of-a-table-in-sql-server</a><br/>
+  <a target="_blank" rel="noopener" href="http://www.sqlinjection.net/time-based/">http://www.sqlinjection.net/time-based/</a><br/>
+  <a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/639854/check-if-a-row-exists-otherwise-insert">https://stackoverflow.com/questions/639854/check-if-a-row-exists-otherwise-insert</a>
+  <a target="_blank" rel="noopener" href="https://blog.netspi.com/identifying-payment-cards-at-rest-going-beyond-the-key-word-search/"></a>
+</p>
+
+</div>
+
+<input class="tabInput"  name="tabs" type="radio" id="PostgreSQL"/>
+<label class="tabLabel" onClick="updateTab('PostgreSQL',false)" for="PostgreSQL">PostgreSQL</label>
+<div id="tabPanel" class="tabPanel">
+     <h3 id="special-thanks-to">Special thanks to:</h3>
+
+<p>
+	<a target="_blank" rel="noopener" href="https://medium.com/greenwolf-security/authenticated-arbitrary-command-execution-on-postgresql-9-3-latest-cd18945914d5">https://medium.com/greenwolf-security/authenticated-arbitrary-command-execution-on-postgresql-9-3-latest-cd18945914d5</a> <br/>
+	<a target="_blank" rel="noopener" href="https://medium.com/@cryptocracker99/a-penetration-testers-guide-to-postgresql-d78954921ee9">https://medium.com/@cryptocracker99/a-penetration-testers-guide-to-postgresql-d78954921ee9</a> <br/>  
+</p>
+
+</div>
+
+</div>
+
+      <div><div>
+  <br/>
+  <p>© 2019 Copyright by NetSPI. All rights reserved.</p>
+</div>
+</div>
+    </div>
+  </div>
+</body>
+</html>

